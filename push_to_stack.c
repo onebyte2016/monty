@@ -1,32 +1,76 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "monty.h"
 
-#define STACK_SIZE 1000
 
-typedef struct {
-	int stack[STACK_SIZE];
-	int top;
-} Stack;
-
-void initStack(Stack *s)
+/**
+ * push_to_stack - Adds a node to the stack.
+ * @new_node: Pointer to the new node.
+ * @ln: Interger representing the line number of of the opcode.
+ */
+void push_to_stack(stack_ds **top, __attribute__((unused))unsigned int ln)
 {
-	s->top = -1;
-}
+	stack_ds *tmp;
 
-void push(Stack *s, int value, int line_number)
-{
-	s->stack[++s->top] = value;
-}
-
-void pall(Stack *s, int line_number)
-{
-	if (s->top == -1)
+	if (top == NULL || *top == NULL)
+		exit(EXIT_FAILURE);
+	if (head == NULL)
 	{
+		head = *top;
 		return;
 	}
+	tmp = head;
+	head = *top;
+	head->next = tmp;
+	tmp->prev = head;
+}
 
-	for (int i = s->top; i >= 0; i--)
+
+/**
+ * _print_stack - Adds a node to the stack.
+ * @stack: Pointer to a pointer pointing to top node of the stack.
+ * @line_number: line number of  the opcode.
+ */
+void _print_stack(stack_ds **stack, unsigned int line_number)
+{
+	stack_ds *tmp;
+
+	(void) line_number;
+	if (stack == NULL)
+		exit(EXIT_FAILURE);
+	tmp = *stack;
+	while (tmp != NULL)
 	{
-		printf("%d\n", s->stack[i]);
+		printf("%d\n", tmp->n);
+		tmp = tmp->next;
 	}
+}
+
+/**
+ * pop_from_stack - Adds a node to the stack.
+ * @stack: Pointer to a pointer pointing to top node of the stack.
+ * @line_number: Interger representing the line number of of the opcode.
+ */
+void pop_from_stack(stack_ds **stack, unsigned int line_number)
+{
+	stack_ds *tmp;
+
+	if (stack == NULL || *stack == NULL)
+		more_err(7, line_number);
+
+	tmp = *stack;
+	*stack = tmp->next;
+	if (*stack != NULL)
+		(*stack)->prev = NULL;
+	free(tmp);
+}
+
+/**
+ * _print_pop - Prints the top node of the stack.
+ * @stack: Pointer to a pointer pointing to top node of the stack.
+ * @line_number: Interger representing the line number of of the opcode.
+ */
+void _print_pop(stack_ds **stack, unsigned int line_number)
+{
+	if (stack == NULL || *stack == NULL)
+		more_err(6, line_number);
+	printf("%d\n", (*stack)->n);
 }
