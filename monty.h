@@ -18,12 +18,12 @@
  * Description: doubly linked list node structure
  * for stack, queues, LIFO, FIFO
  */
-typedef struct Stacking
+typedef struct stack_s
 {
         int n;
-        struct Stacking *prev;
-        struct Stacking *next;
-} stack_ds;
+        struct stack_s *prev;
+        struct stack_s *next;
+} stack_t;
 
 /**
  * struct instruction_s - opcode and its function
@@ -36,11 +36,11 @@ typedef struct Stacking
 typedef struct instruction_s
 {
         char *opcode;
-        void (*f)(stack_ds **stack, unsigned int line_number);
+        void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-extern stack_ds *head;
-typedef void (*op_func)(stack_ds **, unsigned int);
+extern stack_t *head;
+typedef void (*op_func)(stack_t **, unsigned int);
 
 /*file operations*/
 void open_file(char *file_name);
@@ -50,35 +50,35 @@ int len_chars(FILE *);
 void find_func(char *, char *, int, int);
 
 /*Stack operations*/
-stack_ds *create_node(int n);
+stack_t *create_node(int n);
 void free_nodes(void);
-void _print_stack(stack_ds **, unsigned int);
-void push_to_stack(stack_ds **, unsigned int);
-void enqueue(stack_ds **, unsigned int);
+void _print_stack(stack_t **, unsigned int);
+void push_to_stack(stack_t **, unsigned int);
+void enqueue(stack_t **, unsigned int);
 
 void call_fun(op_func, char *, char *, int, int);
 
-void _print_pop(stack_ds **, unsigned int);
-void pop_from_stack(stack_ds **, unsigned int);
-void nop(stack_ds **, unsigned int);
-void swap_nodes(stack_ds **, unsigned int);
+void _print_pop(stack_t **, unsigned int);
+void pop_from_stack(stack_t **, unsigned int);
+void nop(stack_t **, unsigned int);
+void swap_nodes(stack_t **, unsigned int);
 
 /*Math operations with nodes*/
-void add_nodes(stack_ds **, unsigned int);
-void sub_nodes(stack_ds **, unsigned int);
-void div_nodes(stack_ds **, unsigned int);
-void mul_nodes(stack_ds **, unsigned int);
-void mod_nodes(stack_ds **, unsigned int);
+void add_nodes(stack_t **, unsigned int);
+void sub_nodes(stack_t **, unsigned int);
+void div_nodes(stack_t **, unsigned int);
+void mul_nodes(stack_t **, unsigned int);
+void mod_nodes(stack_t **, unsigned int);
 
 /*String operations*/
-void print_char(stack_ds **, unsigned int);
-void print_str(stack_ds **, unsigned int);
-void rotl(stack_ds **, unsigned int);
+void print_char(stack_t **, unsigned int);
+void print_str(stack_t **, unsigned int);
+void rotl(stack_t **, unsigned int);
 
 /*Error hanlding*/
-void err(int error_code, ...);
-void more_err(int error_code, ...);
-void string_err(int error_code, ...);
-void rotr(stack_ds **, unsigned int);
+void _err(int error_code, ...);
+void _my_err(int error_code, ...);
+void _string_err(int error_code, ...);
+void rotr(stack_t **, unsigned int);
 
 #endif

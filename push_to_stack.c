@@ -6,9 +6,9 @@
  * @new_node: Pointer to the new node.
  * @ln: Interger representing the line number of of the opcode.
  */
-void push_to_stack(stack_ds **top, __attribute__((unused))unsigned int ln)
+void push_to_stack(stack_t **top, __attribute__((unused))unsigned int ln)
 {
-	stack_ds *tmp;
+	stack_t *tmp;
 
 	if (top == NULL || *top == NULL)
 		exit(EXIT_FAILURE);
@@ -29,9 +29,9 @@ void push_to_stack(stack_ds **top, __attribute__((unused))unsigned int ln)
  * @stack: Pointer to a pointer pointing to top node of the stack.
  * @line_number: line number of  the opcode.
  */
-void _print_stack(stack_ds **stack, unsigned int line_number)
+void _print_stack(stack_t **stack, unsigned int line_number)
 {
-	stack_ds *tmp;
+	stack_t *tmp;
 
 	(void) line_number;
 	if (stack == NULL)
@@ -49,12 +49,12 @@ void _print_stack(stack_ds **stack, unsigned int line_number)
  * @stack: Pointer to a pointer pointing to top node of the stack.
  * @line_number: Interger representing the line number of of the opcode.
  */
-void pop_from_stack(stack_ds **stack, unsigned int line_number)
+void pop_from_stack(stack_t **stack, unsigned int line_number)
 {
-	stack_ds *tmp;
+	stack_t *tmp;
 
 	if (stack == NULL || *stack == NULL)
-		more_err(7, line_number);
+		_my_err(7, line_number);
 
 	tmp = *stack;
 	*stack = tmp->next;
@@ -68,9 +68,9 @@ void pop_from_stack(stack_ds **stack, unsigned int line_number)
  * @stack: Pointer to a pointer pointing to top node of the stack.
  * @line_number: Interger representing the line number of of the opcode.
  */
-void _print_pop(stack_ds **stack, unsigned int line_number)
+void _print_pop(stack_t **stack, unsigned int line_number)
 {
 	if (stack == NULL || *stack == NULL)
-		more_err(6, line_number);
+		_my_err(6, line_number);
 	printf("%d\n", (*stack)->n);
 }
