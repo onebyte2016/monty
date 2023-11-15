@@ -1,6 +1,10 @@
 #include "monty.h"
 
-
+/**
+ * add_nodes - addition of the two last tow element.
+ * @error_my_err - handle errors
+ * (8)
+ */ 
 void add_nodes(stack_t **stack, unsigned int line_number)
 {
 	int sum;
@@ -14,12 +18,23 @@ void add_nodes(stack_t **stack, unsigned int line_number)
 	(*stack)->prev = NULL;
 }
 
+/**
+ * The opcode nop doesn’t do anything.
+ * return: void
+ *
+ */
+
 void nop(stack_t **stack, unsigned int line_number)
 {
 	(void)stack;
 	(void)line_number;
 }
 
+/**
+ * sub_nodes - subtraction of the two last tow element.
+ * @error_my_err - handle errors
+ * (8)
+ */
 void sub_nodes(stack_t **stack, unsigned int line_number)
 {
 	int result;
