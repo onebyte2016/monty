@@ -54,7 +54,7 @@ stack_ds *create_node(int n);
 void free_nodes(void);
 void _print_stack(stack_ds **, unsigned int);
 void push_to_stack(stack_ds **, unsigned int);
-void add_to_queue(stack_ds **, unsigned int);
+void enqueue(stack_ds **, unsigned int);
 
 void call_fun(op_func, char *, char *, int, int);
 
@@ -63,18 +63,18 @@ void pop_from_stack(stack_ds **, unsigned int);
 void nop(stack_ds **, unsigned int);
 void swap_nodes(stack_ds **, unsigned int);
 
-/*Math operations with nodes
-void add_nodes(stack_t **, unsigned int);
-void sub_nodes(stack_t **, unsigned int);
-void div_nodes(stack_t **, unsigned int);
-void mul_nodes(stack_t **, unsigned int);
-void mod_nodes(stack_t **, unsigned int);
-*/
-/*String operations
-void print_char(stack_t **, unsigned int);
-void print_str(stack_t **, unsigned int);
-void rotl(stack_t **, unsigned int);
-*/
+/*Math operations with nodes*/
+void add_nodes(stack_ds **, unsigned int);
+void sub_nodes(stack_ds **, unsigned int);
+void div_nodes(stack_ds **, unsigned int);
+void mul_nodes(stack_ds **, unsigned int);
+void mod_nodes(stack_ds **, unsigned int);
+
+/*String operations*/
+void print_char(stack_ds **, unsigned int);
+void print_str(stack_ds **, unsigned int);
+void rotl(stack_ds **, unsigned int);
+
 /*Error hanlding*/
 void err(int error_code, ...);
 void more_err(int error_code, ...);
