@@ -3,7 +3,7 @@
 
 /**
  * push_to_stack - Adds a node to the stack.
- * @new_node: Pointer to the new node.
+ * @top: Pointer to the new node.
  * @ln: Interger representing the line number of of the opcode.
  */
 void push_to_stack(stack_t **top, __attribute__((unused))unsigned int ln)

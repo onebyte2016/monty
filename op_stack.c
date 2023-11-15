@@ -1,9 +1,14 @@
 #include "monty.h"
 
-
+/**
+ * add_nodes - Adds the top two elements of the stack.
+ * @stack: Pointer to a pointer pointing to top node of the stack.
+ * @line_number: Interger representing the line number of of the opcode.
+ */
 void add_nodes(stack_t **stack, unsigned int line_number)
 {
 	int sum;
+
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 		_my_err(8, line_number, "add");
 
@@ -14,18 +19,29 @@ void add_nodes(stack_t **stack, unsigned int line_number)
 	(*stack)->prev = NULL;
 }
 
+/**
+ * nop - Adds the top two elements of the stack.
+ * @stack: Pointer to a pointer pointing to top node of the stack.
+ * @line_number: Interger representing the line number of of the opcode.
+ */
 void nop(stack_t **stack, unsigned int line_number)
 {
 	(void)stack;
 	(void)line_number;
 }
 
+/**
+ * sub_nodes - Adds the top two elements of the stack.
+ * @stack: Pointer to a pointer pointing to top node of the stack.
+ * @line_number: Interger representing the line number of of the opcode.
+ */
 void sub_nodes(stack_t **stack, unsigned int line_number)
 {
 	int result;
+
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 		_my_err(8, line_number, "sub");
-	(*stack)=(*stack)->next;
+	(*stack) = (*stack)->next;
 	result = (*stack)->n - (*stack)->prev->n;
 	(*stack)->n = result;
 	free((*stack)->prev);
