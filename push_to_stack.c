@@ -3,23 +3,23 @@
 
 /**
  * push_to_stack - Adds a node to the stack.
- * @top: Pointer to the new node.
+ * @new_node: Pointer to the new node.
  * @ln: Interger representing the line number of of the opcode.
  */
-void push_to_stack(stack_t **stack, __attribute__((unused))unsigned int ln)
+void push_to_stack(stack_t **new_node, __attribute__((unused))unsigned int ln)
 {
 	stack_t *tmp;
 	stack_t *head = NULL;
 
-	if (stack == NULL || *stack == NULL)
+	if (new_node == NULL || *new_node == NULL)
 		exit(EXIT_FAILURE);
 	if (head == NULL)
 	{
-		head = *stack;
+		head = *new_node;
 		return;
 	}
 	tmp = head;
-	head = *stack;
+	head = *new_node;
 	head->next = tmp;
 	tmp->prev = head;
 }
