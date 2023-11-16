@@ -90,7 +90,7 @@ void find_func(char *opcode, char *value, int ln, int format)
 		{"pint", _print_pop},
 		{"pop", pop_from_stack},
 		{"nop", nop},
-		/*{"swap", swap_nodes},*/
+		{"swap", swap_nodes},
 		{"add", add_nodes},
 		{"sub", sub_nodes},
 		{"div", div_nodes},
