@@ -43,7 +43,7 @@ stack_t *create_node(int n)
 void free_nodes(void)
 {
 	stack_t *tmp;
-	stack_t *head;
+	stack_t *head = NULL;
 
 	if (head == NULL)
 		return;
@@ -56,7 +56,6 @@ void free_nodes(void)
 	}
 }
 
-
 /**
  * enqueue - Adds a node to the queue.
  * @top: Pointer to the new node.
@@ -65,7 +64,7 @@ void free_nodes(void)
 void enqueue(stack_t **top, __attribute__((unused))unsigned int ln)
 {
 	stack_t *tmp;
-	stack_t *head;
+	stack_t *head = NULL;
 
 	if (top == NULL || *top == NULL)
 		exit(EXIT_FAILURE);
@@ -80,5 +79,4 @@ void enqueue(stack_t **top, __attribute__((unused))unsigned int ln)
 
 	tmp->next = *top;
 	(*top)->prev = tmp;
-
 }

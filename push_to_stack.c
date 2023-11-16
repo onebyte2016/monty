@@ -9,6 +9,7 @@
 void push_to_stack(stack_t **stack, __attribute__((unused))unsigned int ln)
 {
 	stack_t *tmp;
+	stack_t *head = NULL;
 
 	if (stack == NULL || *stack == NULL)
 		exit(EXIT_FAILURE);

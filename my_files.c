@@ -132,6 +132,7 @@ void find_func(char *opcode, char *value, int ln, int format)
 void call_fun(op_func func, char *op, char *val, int ln, int format)
 {
 	stack_t *node;
+	stack_t *head;
 	int flag;
 	int i;
 
