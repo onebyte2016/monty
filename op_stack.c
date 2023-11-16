@@ -11,6 +11,7 @@ void add_nodes(stack_t **stack, unsigned int line_number)
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 		_my_err(8, line_number, "add");
+	(*stack) = (*stack)->next;
 
 	sum = (*stack)->n + (*stack)->prev->n;
 
@@ -41,6 +42,7 @@ void sub_nodes(stack_t **stack, unsigned int line_number)
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 		_my_err(8, line_number, "sub");
+
 	(*stack) = (*stack)->next;
 	result = (*stack)->n - (*stack)->prev->n;
 	(*stack)->n = result;
