@@ -9,6 +9,7 @@
 void push_to_stack(stack_t **new_node, __attribute__((unused))unsigned int ln)
 {
 	stack_t *tmp;
+	stack_t *head = NULL;
 
 
 	if (new_node == NULL || *new_node == NULL)
