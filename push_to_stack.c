@@ -6,19 +6,19 @@
  * @top: Pointer to the new node.
  * @ln: Interger representing the line number of of the opcode.
  */
-void push_to_stack(stack_t **top, __attribute__((unused))unsigned int ln)
+void push_to_stack(stack_t **stack, __attribute__((unused))unsigned int ln)
 {
 	stack_t *tmp;
 
-	if (top == NULL || *top == NULL)
+	if (stack == NULL || *stack == NULL)
 		exit(EXIT_FAILURE);
 	if (head == NULL)
 	{
-		head = *top;
+		head = *stack;
 		return;
 	}
 	tmp = head;
-	head = *top;
+	head = *stack;
 	head->next = tmp;
 	tmp->prev = head;
 }
