@@ -40,6 +40,8 @@ stack_t *create_node(int n)
 /**
  * free_nodes - Frees nodes in the stack.
  */
+
+
 void free_nodes(void)
 {
 	stack_t *tmp;
